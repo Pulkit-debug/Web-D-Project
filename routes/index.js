@@ -7,6 +7,10 @@ const homeController = require("../controllers/home_controller");
 // console.log("router working");
 
 router.get("/", homeController.home);
+router.use("/users", require("./users"));
+
+// to create any more routes
+// router.get("/routerName", require("./routerpath"));
 
 module.exports = router;
 // so that main index.js can read it.
