@@ -80,13 +80,18 @@ module.exports.createSession = function (req, res) {
 
       // nd handle session creation with cookies
       res.cookie("user_id", user.id);
-      console.log(user);
+      // console.log(user);
       return res.redirect("/users/profile");
     } else {
       // handle if the user is not found.
       return res.redirect("back");
     }
   });
+};
+
+module.exports.signout = function (req, res) {
+  res.clearCookie("user_id");
+  res.redirect("/users/signin");
 };
 
 // module.exports.user = function (req, res) {
