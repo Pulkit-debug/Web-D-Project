@@ -1,10 +1,23 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
-const port = 9000;
 const app = express();
-
+const port = 9000;
 const expressLayouts = require("express-ejs-layouts");
 const db = require("./config/mongoose");
+// used for session cookie
+const session = require("express-session");
+const passport = require("passport");
+const passportLocal = require("./config/passport-local-strategy");
+// const MongoStore = require("connect-mongo")(session);
+const MongoStore = require("connect-mongo").default;
+
+app.use(express.urlencoded());
+
+app.use(cookieParser());
+
+app.use(express.static("./assets"));
+
+// mongoStore is taking a session as an argument
 
 app.use(express.urlencoded());
 app.use(cookieParser());
@@ -17,12 +30,43 @@ app.use(expressLayouts);
 app.set("layout extractStyles", true);
 app.set("layout extractScripts", true);
 
-// use express router from routes folder index.
-app.use("/", require("./routes/index"));
-
 // setting up the view engine
 app.set("view engine", "ejs");
 app.set("views", "./views");
+
+// Setting up Express Sessions
+// mongo store is used to store the session cookie
+app.use(
+  session({
+    name: "getSocial",
+    // TODO change the secret before deployment in production mode
+    secret: "blahsomething",
+    saveUninitialized: false,
+    resave: false,
+    cookie: {
+      maxAge: 1000 * 60 * 100,
+    },
+    store: MongoStore.create(
+      {
+        mongoUrl: "mongodb://localhost/getSocial_development",
+        autoRemove: "disabled",
+      },
+      function (err) {
+        console.log(err || "connect-mongodb setup ok");
+      }
+    ),
+  })
+);
+
+// telling the app to use passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+// whenever the app is getting initialized passport is also getting initialized then this function is called and when this functino is called it will check whether session cookie is present or not
+app.use(passport.setAuthenticatedUser);
+
+// use express router from routes folder index.
+app.use("/", require("./routes"));
 
 app.listen(port, function (err) {
   if (err) {
