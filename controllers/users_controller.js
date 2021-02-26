@@ -65,10 +65,14 @@ module.exports.destorySession = function (req, res) {
 
 // Posts Controller
 module.exports.posts = function (req, res) {
-  return res.render("user_posts", {
-    title: "User Posts page",
-  });
+  if (req.isAuthenticated()) {
+    return res.render("user_posts", {
+      title: "User Posts page",
+    });
+  } else {
+    return res.redirect("/");
+  }
 };
 
-const postsController = require("./posts_controller");
-module.exports.posts = postsController.posts;
+// const postsController = require("./posts_controller");
+// module.exports.posts = postsController.posts;
