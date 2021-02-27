@@ -1,0 +1,20 @@
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #ffd477; }
+  footer #fixed-footer {
+    display: flex;
+    justify-content: space-between; }
+    footer #fixed-footer #goto-home-profile {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      footer #fixed-footer #goto-home-profile h4 {
+        list-style-type: none;
+        padding: 5px;
+        cursor: pointer; }
+        footer #fixed-footer #goto-home-profile h4 a {
+          text-decoration: none;
+          color: black; }

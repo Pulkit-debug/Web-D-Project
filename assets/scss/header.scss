@@ -1,0 +1,32 @@
+#header-nav {
+  // border: 2px solid red;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  background-color: rgb(255, 212, 119);
+
+  #brand-name {
+    font-size: 1.2rem;
+    margin-left: 0.5vw;
+  }
+
+  #sign-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    li {
+      list-style-type: none;
+      // border: 2px solid grey;
+      padding: 10px;
+      cursor: pointer;
+      a {
+        text-decoration: none;
+        margin: 1vw;
+        font-size: 1.2rem;
+        color: black;
+        font-weight: 900;
+      }
+    }
+  }
+}

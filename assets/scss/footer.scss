@@ -1,0 +1,31 @@
+// Footer Section
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(255, 212, 119);
+
+  #fixed-footer {
+    display: flex;
+    justify-content: space-between;
+
+    #goto-home-profile {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      h4 {
+        list-style-type: none;
+        padding: 5px;
+        cursor: pointer;
+
+        a {
+          text-decoration: none;
+          color: black;
+        }
+      }
+    }
+  }
+}

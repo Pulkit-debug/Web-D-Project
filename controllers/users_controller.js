@@ -55,7 +55,7 @@ module.exports.create = function (req, res) {
 
 // TODO: Get the Sign in
 module.exports.createSession = function (req, res) {
-  return res.redirect("/");
+  return res.redirect("/users/profile");
 };
 
 module.exports.destorySession = function (req, res) {
