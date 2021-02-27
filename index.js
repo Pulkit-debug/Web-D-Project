@@ -51,7 +51,7 @@ app.use(
   session({
     name: "getSocial",
     // TODO change the secret before deployment in production mode
-    secret: "blahsomething",
+    secret: "something",
     saveUninitialized: false,
     resave: false,
     cookie: {

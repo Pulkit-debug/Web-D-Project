@@ -62,17 +62,3 @@ module.exports.destorySession = function (req, res) {
   req.logout();
   return res.redirect("/");
 };
-
-// Posts Controller
-module.exports.posts = function (req, res) {
-  if (req.isAuthenticated()) {
-    return res.render("user_posts", {
-      title: "User Posts page",
-    });
-  } else {
-    return res.redirect("/");
-  }
-};
-
-// const postsController = require("./posts_controller");
-// module.exports.posts = postsController.posts;
