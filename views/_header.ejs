@@ -3,9 +3,9 @@
     <div id="brand-name">
       <h2>Get Social</h2>
     </div>
-    <% }if(!locals.user){ %>
+    <% if(!locals.user){ %>
 
-    <div id="sign-options">
+    <div class="sign-options">
       <li>
         <a href="/users/signin">Sign in</a>
       </li>
@@ -14,17 +14,16 @@
       </li>
     </div>
 
-    <% } %>
-  </div>
-  <div id="user-profile-data">
-    <ul>
-      <% if(locals.user) { %>
+    <% } %> <% if(locals.user){ %>
+
+    <div id="user-profile-data" class="sign-options">
       <li>
         <a href="/users/profile"> <%= locals.user.name %> </a>
       </li>
       <li>
         <a href="/users/signout">Sign Out</a>
       </li>
-    </ul>
+    </div>
+    <% } %>
   </div>
 </header>

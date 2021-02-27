@@ -6,15 +6,15 @@
   #header-nav #brand-name {
     font-size: 1.2rem;
     margin-left: 0.5vw; }
-  #header-nav #sign-options {
+  #header-nav .sign-options {
     display: flex;
     justify-content: center;
     align-items: center; }
-    #header-nav #sign-options li {
+    #header-nav .sign-options li {
       list-style-type: none;
       padding: 10px;
       cursor: pointer; }
-      #header-nav #sign-options li a {
+      #header-nav .sign-options li a {
         text-decoration: none;
         margin: 1vw;
         font-size: 1.2rem;
