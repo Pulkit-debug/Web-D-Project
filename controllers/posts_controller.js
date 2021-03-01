@@ -17,3 +17,5 @@ module.exports.create = function (req, res) {
     }
   );
 };
+
+module.exports.comment = function (err, res) {};
