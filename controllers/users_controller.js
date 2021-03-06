@@ -25,6 +25,7 @@ module.exports.signIn = function (req, res) {
   if (req.isAuthenticated()) {
     return res.redirect("/users/profile");
   }
+
   return res.render("user_signin", {
     title: "SignIn Page",
   });
@@ -67,12 +68,14 @@ module.exports.create = function (req, res) {
   );
 };
 
-// TODO: Get the Sign in
+// sign in and create a session for the user.
 module.exports.createSession = function (req, res) {
+  req.flash("success", "Logged in Succesfully!");
   return res.redirect("/");
 };
 
 module.exports.destorySession = function (req, res) {
   req.logout();
+  req.flash("success", "Logged out Successfully!");
   return res.redirect("/");
 };

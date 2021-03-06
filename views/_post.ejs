@@ -1,33 +1,36 @@
-<li>
-  <% if(locals.user && locals.user.id == post.user.id) { %>
-
-  <small><a href="/posts/destroy/<%=post.id %> ">X</a></small>
-
-  <% } %>
-  <h3 style="margin: 0"><%= post.content %></h3>
-
-  <small><%= post.user.name%> </small>
-
-  <div class="post-comment">
-    <% if(locals.user) { %>
-
-    <form action="/comments/create" method="POST">
+<li id="post-<%= post._id %>">
+  <p>
+    <% if (locals.user && locals.user.id == post.user.id){ %>
+    <small>
+      <a class="delete-post-button" href="/posts/destroy/<%= post.id %>">X</a>
+    </small>
+    <% } %> <%= post.content %>
+    <br />
+    <small> <%= post.user.name %> </small>
+  </p>
+  <div class="post-comments">
+    <% if (locals.user){ %>
+    <!-- let's give an id to the new comment form, we'll also need to make the same changes in home_posts.js where we're adding a post to the page -->
+    <form
+      id="post-<%= post._id %>-comments-form"
+      action="/comments/create"
+      method="POST"
+    >
       <input
         type="text"
         name="content"
-        placeholder="Type your comment here..."
+        placeholder="Type Here to add comment..."
         required
       />
-      <!-- We need to send the id of the post to which the  comment needs to be added. -->
       <input type="hidden" name="post" value="<%= post._id %>" />
       <input type="submit" value="Add Comment" />
     </form>
+
     <% } %>
 
     <div class="post-comments-list">
-      <ul id="post-comments-<%= post._id %> ">
-        <% for (comment of post.comments) { %> <%- include("_comment") -%> <% }
-        %>
+      <ul id="post-comments-<%= post._id %>">
+        <% for (comment of post.comments){%> <%- include('_comment') -%> <%} %>
       </ul>
     </div>
   </div>

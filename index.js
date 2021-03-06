@@ -11,6 +11,8 @@ const passportLocal = require("./config/passport-local-strategy");
 // const MongoStore = require("connect-mongo")(session);
 const MongoStore = require("connect-mongo").default;
 const sassMiddleware = require("node-sass-middleware");
+const flash = require("connect-flash");
+const customMware = require("./config/middleware");
 
 app.use(
   sassMiddleware({
@@ -76,6 +78,8 @@ app.use(passport.session());
 // whenever the app is getting initialized passport is also getting initialized then this function is called and when this functino is called it will check whether session cookie is present or not
 app.use(passport.setAuthenticatedUser);
 
+app.use(flash());
+app.use(customMware.setFlash);
 // use express router from routes folder index.
 app.use("/", require("./routes"));
 
