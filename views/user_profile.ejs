@@ -1,6 +1,7 @@
 <!-- Using express-ejs-layouts here  check layout.ejs file -->
 <link rel="stylesheet" href="/css/user_profile.css" />
-<h1>User Profile page</h1>
+
+<img src="<%= user.avatar %>" alt="<%= user.name %> " width="100px" />
 
 <% if(user.id == profile_user.id) { %>
 <!-- If user matches then sow the form else show only profile info -->
@@ -9,6 +10,7 @@
   action="/users/update/<%= profile_user.id %> "
   id="update-user-details"
   method="POST"
+  enctype="multipart/form-data"
 >
   <input
     type="text"
@@ -25,6 +27,7 @@
     value="<%= profile_user.email %> "
     required
   />
+  <input type="file" name="avatar" placeholder="Profile Picture" />
   <input type="submit" value="Update" />
 </form>
 
