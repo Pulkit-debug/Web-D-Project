@@ -29,4 +29,16 @@ router.post(
 );
 // router.get("/", usersController.user);
 router.get("/signout", usersController.destorySession);
+
+router.get(
+  "/auth/google",
+  passport.authenticate("google", { scope: ["profile", "email"] })
+);
+
+router.get(
+  "/auth/google/callback",
+  passport.authenticate("google", { failureRedirect: "/users/signin" }),
+  usersController.createSession
+);
+// scope is the information which we are looking to fetch
 module.exports = router;

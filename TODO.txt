@@ -1,0 +1,1 @@
+// create seperate fields for friends and users make the functionality to add friends or remove friends.

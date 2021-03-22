@@ -1,4 +1,6 @@
 const User = require("../models/user");
+const fs = require("fs");
+const path = require("path");
 
 module.exports.profile = function (req, res) {
   // locating the user
@@ -23,26 +25,40 @@ module.exports.update = async function (req, res) {
     try {
       let user = await User.findById(req.params.id);
       // I'm using the multer function because I can't parse multipart form data with body parser
+
       User.uploadedAvatar(req, res, function (err) {
         if (err) {
-          console.log("--Error with Multer--", err);
+          console.log("*****Multer Error: ", err);
         }
+
+        // console.log(req.file);
+
         user.name = req.body.name;
         user.email = req.body.email;
+
         if (req.file) {
           // this is saving the path of the uplaoded file into the avatar fileld in the user.
-          user.avatar = User.avatarpath + "/" + req.file.filename;
+
+          if (
+            user.avatar &&
+            fs.existsSync(path.join(__dirname, "..", user.avatar))
+          ) {
+            fs.unlinkSync(path.join(__dirname, "..", user.avatar));
+          }
+
+          // this is saving the path of the uploaded file into the avatar field in the user
+          user.avatar = User.avatarPath + "/" + req.file.filename;
         }
         user.save();
         return res.redirect("back");
       });
-    } catch (error) {
+    } catch (err) {
       req.flash("error", err);
       return res.redirect("back");
     }
   } else {
-    req.flash("error", "Unauthorized");
-    res.status(401).send("UnAuthorised");
+    req.flash("error", "Unauthorized!");
+    return res.status(401).send("Unauthorized");
   }
 };
 

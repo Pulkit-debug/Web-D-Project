@@ -10,7 +10,8 @@ router.get("/", homeController.home);
 router.use("/users", require("./users"));
 router.use("/posts", require("./posts"));
 router.use("/comments", require("./comments"));
-
+router.use("/api", require("./api"));
+router.use("/likes", require("./likes"));
 // to create any more routes
 // router.get("/routerName", require("./routerpath"));
 
