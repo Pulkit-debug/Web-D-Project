@@ -1,1 +1,3 @@
-// create seperate fields for friends and users make the functionality to add friends or remove friends.
+----------------BUGS----------------
+    1. add friends and remove friends button is not stable on profile page(changes on reload)
+    2. check the database for comments array in posts.(not deleting from the array).
