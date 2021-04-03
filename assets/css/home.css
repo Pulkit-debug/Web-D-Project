@@ -6,6 +6,13 @@
   #home-container #user-friends {
     width: 30%;
     height: 45vh;
+    background-color: lightcoral;
+    padding: 10px; }
+    #home-container #user-friends h4 {
+      font-size: 1.5rem; }
+  #home-container #all-users {
+    width: 30%;
+    height: 45vh;
     padding: 10px;
     border-left: 2px solid #cac9c9;
     background-color: cyan; }

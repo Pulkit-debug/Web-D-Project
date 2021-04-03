@@ -7,6 +7,15 @@
   #user-friends {
     width: 30%;
     height: 45vh;
+    background-color: lightcoral;
+    padding: 10px;
+    h4 {
+      font-size: 1.5rem;
+    }
+  }
+  #all-users {
+    width: 30%;
+    height: 45vh;
     padding: 10px;
     border-left: 2px solid rgb(202, 201, 201);
     background-color: cyan;

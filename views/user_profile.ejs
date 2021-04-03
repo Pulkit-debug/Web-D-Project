@@ -34,4 +34,10 @@
 <p><%= profile_user.name %></p>
 <p><%= profile_user.email %></p>
 
+<a href="/friends/add/<%= profile_user._id %>" id="add-friend-button"
+  >Add Friend</a
+>
+
 <% } %>
+
+<script src="/js/user_friends.js"></script>
