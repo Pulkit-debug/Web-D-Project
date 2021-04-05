@@ -2,6 +2,10 @@ const passport = require("passport");
 const JWTStrategy = require("passport-jwt").Strategy;
 // this will help us extract the jwt from the header
 const ExtractJWT = require("passport-jwt").ExtractJwt;
+// require('dotenv').config();
+
+const env = require("./environment");
+
 
 const User = require("../models/user");
 
@@ -9,7 +13,8 @@ const User = require("../models/user");
 // header is alist of keys and it has a akey called authorization
 let opts = {
   jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
-  secretOrKey: "getSocial",
+  secretOrKey: env.jwt_secret,
+
 };
 
 passport.use(

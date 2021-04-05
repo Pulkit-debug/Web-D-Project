@@ -1,7 +1,10 @@
 <header>
-  <div id="header-nav">
+  <nav id="header-nav">
     <div id="brand-name">
-      <h2>Get Social</h2>
+      <h4>
+        <a href="/">GetSocial</a>
+        </h4>
+      </p>
     </div>
     <% if(!locals.user){ %>
 
@@ -18,12 +21,14 @@
 
     <div id="user-profile-data" class="sign-options">
       <li>
-        <a href="/users/profile"> <%= locals.user.name %> </a>
+        <a href="/users/profile/<%= locals.user._id %> ">
+          <%= locals.user.name %>
+        </a>
       </li>
       <li>
         <a href="/users/signout">Sign Out</a>
       </li>
     </div>
     <% } %>
-  </div>
+  </nav>
 </header>

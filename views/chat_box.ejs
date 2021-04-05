@@ -1,6 +1,10 @@
 <% if(locals.user) { %>
 
-<div id="user-chat-box">
+<div class="chat-icon">
+  <i class="fas fa-comments"></i>
+</div>
+
+<div class="chat-box" id="user-chat-box">
   <ul id="message-list-container">
     <li class="other-message">
       <span> other message</span>
@@ -16,4 +20,9 @@
   </div>
 </div>
 
+<!-- <div id="user-chat-box">
+  </div> -->
+
 <% } %>
+
+<script src="/js/chatbox.js"></script>

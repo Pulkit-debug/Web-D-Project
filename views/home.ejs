@@ -1,9 +1,35 @@
+<!-- *********** BOOTSTRAP CDN *************** -->
+
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+/>
+
+<!-- *********** BOOTSTRAP CDN *************** -->
+
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+  crossorigin="anonymous"
+/>
+
 <link rel="stylesheet" href="/css/home.css" />
 <link rel="stylesheet" href="/css/chat_box.css" />
+<link rel="stylesheet" href="/css/_posts.css" />
 
 <div id="home-container">
+  <section id="all-users">
+    <h4>All Users</h4>
+    <% for(u of all_users){%>
+    <p>
+      <a href="/users/profile/<%= u.id %>"><%= u.name %></a>
+    </p>
+    <% } %>
+  </section>
+
   <section id="feed-posts">
-    <h4>Posts</h4>
+    <h1>All Posts</h1>
     <% if(locals.user){ %>
     <form action="/posts/create" id="new-post-form" method="POST">
       <textarea
@@ -12,8 +38,14 @@
         rows="3"
         placeholder="Type Here..."
         required
+        id="post-content"
       ></textarea>
-      <input type="submit" value="Post" />
+      <input
+        type="submit"
+        value="Post"
+        id="post-submit-button"
+        class="btn btn-outline-success"
+      />
     </form>
     <% } %>
 
@@ -35,19 +67,23 @@
     <% } %>
   </section>
 
-  <section id="all-users">
-    <h4>All Users</h4>
-    <% for(u of all_users){%>
-    <p>
-      <a href="/users/profile/<%= u.id %>"><%= u.name %></a>
-    </p>
-    <% } %>
-  </section>
-
   <%- include("chat_box") %>
 </div>
 
 <!-- importing this script for creating the comments -->
+
+<!-- *********** BOOTSTRAP CDN *************** -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<!-- *********** BOOTSTRAP CDN *************** -->
+
+<script
+  src="https://kit.fontawesome.com/63f6d0fc63.js"
+  crossorigin="anonymous"
+></script>
+
 <script src="/js/home_post_comments.js"></script>
 <script src="/js/home_posts.js"></script>
 

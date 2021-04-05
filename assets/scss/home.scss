@@ -1,8 +1,51 @@
 #home-container {
+  font-family: "Source Sans Pro", sans-serif;
   display: flex;
+  height: 80%;
   #feed-posts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 70%;
     padding: 10px;
+    #new-post-form {
+      width: 70%;
+      // border: 2px solid red;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      #post-content {
+        padding-left: 30px;
+        padding-right: 30px;
+
+        border-radius: 10px;
+        font-size: 1.5rem;
+        // border: none;
+        outline: none;
+      }
+      #post-submit-button {
+        padding: 20px;
+        padding-left: 30px;
+        padding-right: 30px;
+        font-size: 2rem;
+        font-weight: 600;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+      }
+    }
+
+    #posts-list-container {
+      width: 50%;
+    }
+  }
+  #all-users {
+    h4 {
+      font-weight: 700;
+    }
   }
   #user-friends {
     width: 30%;
@@ -10,7 +53,8 @@
     background-color: lightcoral;
     padding: 10px;
     h4 {
-      font-size: 1.5rem;
+      // font-size: 1.5rem;
+      font-weight: 700;
     }
   }
   #all-users {

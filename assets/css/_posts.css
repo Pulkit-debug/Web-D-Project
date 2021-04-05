@@ -1,0 +1,19 @@
+li .modal-content {
+  margin-top: 20px; }
+
+li #post-content-remove {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+li p {
+  display: inline-block;
+  font-size: 1.3rem;
+  font-family: "Lato", sans-serif;
+  font-weight: 600;
+  margin-bottom: 0; }
+
+li .likes {
+  font-size: 1.5rem;
+  margin-left: 20px; }

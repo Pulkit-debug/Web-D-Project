@@ -1,4 +1,6 @@
 const express = require("express");
+const env = require("./config/environment");
+const logger = require("morgan");
 const cookieParser = require("cookie-parser");
 const app = express();
 const port = 9000;
@@ -21,23 +23,27 @@ const customMware = require("./config/middleware");
 const chatServer = require("http").Server(app);
 const chatSockets = require("./config/chat_sockets").chatSockets(chatServer);
 chatServer.listen(3000);
-console.log("Chat server is listening on port 5000");
+console.log("Chat server is listening on port 3000");
+const path = require("path");
 
-app.use(
-  sassMiddleware({
-    src: "./assets/scss", // where do i pickup the files to convett into scss
-    dest: "./assets/css",
-    debug: true,
-    outputStyle: "extended",
-    prefix: "/css",
-  })
-);
+if (env.name == "development") {
+  app.use(
+    sassMiddleware({
+      src: path.join(__dirname, env.asset_path, "scss"), // where do i pickup the files to convett into scss
+      dest: path.join(__dirname, env.asset_path, "css"),
+      debug: true,
+      outputStyle: "extended",
+      prefix: "/css",
+    })
+  );
+}
+
 
 app.use(express.urlencoded());
 
 app.use(cookieParser());
 
-app.use(express.static("./assets"));
+app.use(express.static(env.asset_path));
 
 // mongoStore is taking a session as an argument
 
@@ -48,6 +54,8 @@ app.use(express.static("./assets"));
 
 // make the uploads path available toe the browser
 app.use("/uploads", express.static(__dirname + "/uploads"));
+
+app.use(logger(env.morgan.mode, env.morgan.options));
 
 // using express-ejs-layouts
 app.use(expressLayouts);
@@ -65,7 +73,7 @@ app.use(
   session({
     name: "getSocial",
     // TODO change the secret before deployment in production mode
-    secret: "something",
+    secret: env.session_cookie_key,
     saveUninitialized: false,
     resave: false,
     cookie: {

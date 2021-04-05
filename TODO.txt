@@ -1,3 +1,5 @@
 ----------------BUGS----------------
     1. add friends and remove friends button is not stable on profile page(changes on reload)
     2. check the database for comments array in posts.(not deleting from the array).
+    3. Connect the chatbox to the Database (if needed).
+    4. Layouts are misbehaving

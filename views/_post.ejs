@@ -1,28 +1,44 @@
-<li id="post-<%= post._id %>">
-  <p>
-    <% if (locals.user && locals.user.id == post.user.id){ %>
-    <small>
-      <a class="delete-post-button" href="/posts/destroy/<%= post.id %>">X</a>
-    </small>
-    <% } %> <%= post.content %>
-    <br />
-    <small> <%= post.user.name %> </small>
+<li id="post-<%= post._id %>" class="post-list-item">
+  <% if (locals.user && locals.user.id == post.user.id){ %>
 
-    <!-- CHANGE :: display the likes of this post, if the user is logged in, then show the link to toggle likes, else, just show the count -->
-    <br />
-    <!-- study about the data attribute -->
-    <small>
-      <% if (locals.user){ %>
+  <div class="modal-content">
+    <div class="modal-header">
       <a
-        class="toggle-like-button"
-        data-likes="<%= post.likes.length %>"
-        href="/likes/toggle/?id=<%=post._id%>&type=Post"
+        type="button"
+        class="btn close delete-post-button"
+        data-dismiss="modal"
+        href="/posts/destroy/<%= post.id %>"
+        >&times;</a
       >
-        <%= post.likes.length %> Likes
-      </a>
-      <% }else{ %> <%= post.likes.length %> Likes <% } %>
-    </small>
-  </p>
+      <!-- <button type="button" class="close" >
+          
+        </button> -->
+      <h4 class="modal-title"><%= post.user.name %></h4>
+    </div>
+    <div class="modal-body">
+      <p><%= post.content %></p>
+    </div>
+  
+
+  <% } %>
+
+  <small>
+    <% if (locals.user){ %>
+    <a
+      class="toggle-like-button"
+      data-likes="<%= post.likes.length %>"
+      href="/likes/toggle/?id=<%=post._id%>&type=Post"
+    >
+    <p class="likes">
+      <%= post.likes.length %> Likes
+    </p>
+    </a>
+    <% }else{ %> 
+      <p class="likes">
+      <%= post.likes.length %> Likes 
+    </p>
+      <% } %>
+  </small>
   <div class="post-comments">
     <% if (locals.user){ %>
     <!-- let's give an id to the new comment form, we'll also need to make the same changes in home_posts.js where we're adding a post to the page -->
