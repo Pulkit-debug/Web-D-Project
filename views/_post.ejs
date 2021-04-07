@@ -20,7 +20,21 @@
     </div>
   
 
-  <% } %>
+    <% } else { %>
+
+      <div class="modal-content">
+        <div class="modal-header">
+         
+          <!-- <button type="button" class="close" >
+              
+            </button> -->
+          <h4 class="modal-title"><%= post.user.name %></h4>
+        </div>
+        <div class="modal-body">
+          <p><%= post.content %></p>
+        </div>
+
+      <% } %> 
 
   <small>
     <% if (locals.user){ %>
@@ -34,9 +48,7 @@
     </p>
     </a>
     <% }else{ %> 
-      <p class="likes">
-      <%= post.likes.length %> Likes 
-    </p>
+      <p><%= post.likes.length %> Likes </p>
       <% } %>
   </small>
   <div class="post-comments">
@@ -46,6 +58,7 @@
       id="post-<%= post._id %>-comments-form"
       action="/comments/create"
       method="POST"
+      class="comment-form-container"
     >
       <input
         type="text"

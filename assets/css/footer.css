@@ -1,5 +1,4 @@
 footer {
-  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -13,9 +12,8 @@ footer {
       justify-content: center;
       align-items: center; }
     footer #fixed-footer #goto-home-profile {
-      width: 14vw;
+      width: 6vw;
       display: flex;
-      justify-content: space-between;
       align-items: center; }
       footer #fixed-footer #goto-home-profile h4 {
         list-style-type: none;

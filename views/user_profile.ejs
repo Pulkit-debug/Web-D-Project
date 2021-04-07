@@ -45,12 +45,14 @@
 
 <%}else{%>
 <!-- else show only the profile info -->
+<div id="not-same-user-container">
 <p><%= profile_user.name %></p>
 <p><%= profile_user.email %></p>
 
 <a href="/friends/add/<%= profile_user._id %>" id="add-friend-button"
   >Add Friend</a
 >
+</div>
 
 <% } %>
 

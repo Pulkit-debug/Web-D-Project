@@ -1,9 +1,13 @@
 #header-nav {
   // border: 2px solid red;
+  width: 100%;
+  position: absolute;
+  top: 0;
   display: flex;
   justify-content: space-between;
   text-align: center;
   background-color: rgb(255, 212, 119);
+  margin-bottom: 10px;
 
   #brand-name {
     // margin: 5px;

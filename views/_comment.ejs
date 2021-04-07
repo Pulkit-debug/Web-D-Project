@@ -7,7 +7,11 @@
       >Remove</a
     >
   </small>
+  <% } else { %>
+  <p><%= comment.content %></p>
+
   <% } %>
+
   <br />
   <small> <%= comment.user.name %> </small>
   <small>

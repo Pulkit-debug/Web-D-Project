@@ -21,3 +21,6 @@ body {
       border: 1px solid #ccc;
       margin-bottom: 20px;
       outline: none; }
+  body #not-same-user-container {
+    margin-top: 10%;
+    margin-bottom: 10%; }

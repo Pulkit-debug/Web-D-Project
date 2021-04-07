@@ -19,4 +19,12 @@ li {
     font-size: 1.5rem;
     margin-left: 20px;
   }
+  .comment-form-container {
+    display: flex;
+    flex-direction: row; //default
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
 }
