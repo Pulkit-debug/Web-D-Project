@@ -1336,3 +1336,5 @@
 [0mGET / [36m304[0m 8.047 ms - -[0m
 [0mGET /users/profile/606867bf574a0c10442b2710 [32m200[0m 5.148 ms - 3527[0m
 [0mGET /users/profile/606867bf574a0c10442b2710 [36m304[0m 10.558 ms - -[0m
+[0mGET /users/profile/606867bf574a0c10442b2710 [36m304[0m 80.985 ms - -[0m
+[0mGET / [36m304[0m 17.370 ms - -[0m
