@@ -1,8 +1,12 @@
 #header-nav {
+  width: 100%;
+  position: absolute;
+  top: 0;
   display: flex;
   justify-content: space-between;
   text-align: center;
-  background-color: #ffd477; }
+  background-color: #ffd477;
+  margin-bottom: 10px; }
   #header-nav #brand-name {
     margin-left: 5px; }
   #header-nav #brand-name > h4 > a {
