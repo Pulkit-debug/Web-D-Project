@@ -3,7 +3,7 @@ const Chatbox = require("../models/chat_box");
 module.exports.chatSockets = function (socketServer) {
   let io = require("socket.io")(socketServer, {
     cors: {
-      origin: "http://localhost:9000",
+      origin: "http://3.84.83.75:9000",
       methods: ["GET", "POST"],
     },
   });

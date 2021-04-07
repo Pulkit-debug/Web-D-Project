@@ -4,7 +4,7 @@ class ChatEngine {
         this.userEmail = userEmail;
 
         // initiate the connctino
-        this.socket = io("http://localhost:3000");
+        this.socket = io("http://3.84.83.75:3000");
         // this connect fires an event connection that is present in chat_sockets.js
 
         if (this.userEmail) {
