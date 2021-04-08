@@ -7,5 +7,11 @@
   "css/layout.css": "css/layout-5f54bd59b6.css",
   "css/user_profile.css": "css/user_profile-036927c4db.css",
   "css/user_signin.css": "css/user_signin-29c9a898c9.css",
-  "css/user_signup.css": "css/user_signup-29c9a898c9.css"
+  "css/user_signup.css": "css/user_signup-29c9a898c9.css",
+  "js/chat_engine.js": "js/chat_engine-2baebb4b4b.js",
+  "js/chatbox.js": "js/chatbox-4305a54986.js",
+  "js/home_post_comments.js": "js/home_post_comments-dd427e4fad.js",
+  "js/home_posts.js": "js/home_posts-5f4d15d179.js",
+  "js/toggle_likes.js": "js/toggle_likes-23850979c7.js",
+  "js/user_friends.js": "js/user_friends-ff043b763b.js"
 }
