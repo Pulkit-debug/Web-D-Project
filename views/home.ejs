@@ -20,7 +20,7 @@
 
 <div id="home-container">
   <section id="all-users">
-    <h4>All Users</h4>
+    <h4 style="margin-top: 40px">All Users</h4>
     <% for(u of all_users){%>
     <p>
       <a href="/users/profile/<%= u.id %>"><%= u.name %></a>
@@ -57,7 +57,7 @@
   </section>
 
   <section id="user-friends">
-    <h4>User Friends</h4>
+    <h4 style="margin-top: 40px">User Friends</h4>
     <% for(friend of friends) { %>
     <p>
       <a href="/users/profile/<%= friend.to_user._id %>"
