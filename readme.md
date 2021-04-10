@@ -99,3 +99,5 @@ mailers
 </p>
 
 </ol>
+
+<h1> <strong>NOTE: </strong> Google Signin/signup will not work as it requires domain for a callback url .com or something but I have only IP Address. </h1>
